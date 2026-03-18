@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "Netflix Household Bypass",
+  "name": "Netflix Household Problem",
   "version": "1.9",
-  "description": "Blocks GraphQL on /watch, hides modal on /browse.",
+  "description": "Solution for Safari - Educational extension demonstrating web extension APIs.",
   "permissions": [
     "tabs",
     "webNavigation",

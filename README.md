@@ -1,4 +1,4 @@
-# Netflix Household No More 🚫
+# Netflix Household Problem - Solution for Safari 🚫
 
 A Safari browser extension for educational purposes that demonstrates how web extensions can interact with web pages. This project is intended for **educational and research purposes only**.
 
@@ -34,12 +34,12 @@ Safari extensions require Xcode to build and install:
 
 4. **Open the Xcode project:**
    ```bash
-   open build_tools/build/safari/Netflix\ Household\ Bypass/Netflix\ Household\ Bypass.xcodeproj
+   open build_tools/build/safari/Netflix\ Household\ Problem/Netflix\ Household\ Problem.xcodeproj
    ```
 
 5. **Configure signing in Xcode:**
    - Click on the project in the left sidebar
-   - Select the target "Netflix Household Bypass"
+   - Select the target "Netflix Household Problem"
    - Go to **Signing & Capabilities** tab
    - Select your **Team** (Apple ID)
 
@@ -49,7 +49,7 @@ Safari extensions require Xcode to build and install:
 
 7. **Enable the extension:**
    - Open **Safari > Settings > Extensions**
-   - Enable "Netflix Household Bypass"
+   - Enable "Netflix Household Problem"
 
 ---
 
@@ -82,7 +82,7 @@ This project is **NOT** intended for:
 ## Uninstall
 
 1. Open **Safari > Settings > Extensions**
-2. Disable "Netflix Household Bypass"
+2. Disable "Netflix Household Problem"
 3. Delete the extension app from **Applications** folder (if installed)
 
 ---
