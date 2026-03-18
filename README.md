@@ -1,103 +1,134 @@
-              
-<a href="https://www.buymeacoffee.com/amach1" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
-
-
-
 # Netflix Household No More 🚫
 
-A browser extension aiming to bypass the Netflix household verification prompts by employing different strategies depending on the page context.
+A browser extension for educational purposes that demonstrates how web extensions can interact with web pages. This project is intended for **educational and research purposes only**.
 
 **Supports:** `Chrome` (and Chromium-based browsers like Edge) | `Firefox` | `Safari`
 
 ---
 
+## ⚠️ IMPORTANT LEGAL DISCLAIMER
+
+**This software is provided "as is" for educational and research purposes only.**
+
+- **Not Affiliated:** This project is not endorsed by, affiliated with, or sponsored by Netflix, Inc.
+- **Use at Your Own Risk:** By using this software, you acknowledge and agree that you are solely responsible for any consequences that may result from its use.
+- **Terms of Service:** Using this extension may violate Netflix's Terms of Service. You are solely responsible for reviewing and complying with applicable terms of service.
+- **No Warranty:** This software is provided without any warranty, express or implied, including but not limited to warranties of merchantability or fitness for a particular purpose.
+- **No Liability:** The authors and contributors shall not be liable for any damages, claims, or legal actions arising from the use of this software.
+- **Educational Use Only:** This project is intended to demonstrate web extension capabilities for educational purposes.
+
+**By using this software, you agree to these terms.**
+
+---
+
 ## Features
 
-*   **Blocks Verification Request on `/watch`:** Prevents the specific GraphQL network request associated with the household check from running when you are on a video watching page (`/watch/`).
-*   **Hides Verification Modal on `/browse` (and others):** On pages *other* than `/watch/` (like the main browse page), it hides the household verification modal popup if it appears.
-*   **Target:** Only affects `netflix.com` domains.
-
-
----
-
-## Installation (Official)
-
-**Mozilla Firefox:** https://addons.mozilla.org/cs/firefox/addon/netflix-household-no-more/
-
-**Google Chrome / Microsoft Edge / Chromium Browsers:** Extension wont be published there. (approval for upload was denied)
-
-**Safari:** Not published on App Store. Use local installation below.
-
-
-## Installation (Local Development/Testing)
-
-As this extension is not published yet on chrome store, you need to load it manually.
-
-**Google Chrome / Microsoft Edge / Chromium Browsers:**
-
-1.  Download or clone this repository to your local machine.
-2.  Open your browser and navigate to `chrome://extensions` (or `edge://extensions`).
-3.  Enable **Developer mode** (usually a toggle in the top-right corner).
-4.  Click the **Load unpacked** button.
-5.  Select the directory where you saved the extension files. In folder `build_tools/build/chrome/` (the folder containing `manifest.json`).
-6.  The extension should now be loaded and active.
-
-**Mozilla Firefox:**
-
-1.  Download or clone this repository to your local machine.
-2.  Open Firefox and navigate to `about:debugging`.
-3.  Click on **This Firefox** in the left sidebar.
-4.  Click the **Load Temporary Add-on...** button.
-5.  Navigate to the directory where you saved the extension files. In folder `build_tools/build/firefox/` you need to extract the zip folder.
-6.  Select the **`manifest.json`** file itself inside the extracted folder.
-7.  The extension should now be loaded and active for the current browser session.
-    *   **Note:** Firefox temporary add-ons are removed when you close the browser. You will need to reload it each time you restart Firefox.
-
-**Apple Safari:**
-
-Safari extensions require Xcode. The build script will create a Safari app for you:
-
-1.  Download or clone this repository to your local machine.
-2.  Install Xcode from the Mac App Store (required for Safari extension development).
-3.  Run the Safari build script:
-    ```bash
-    chmod +x build_tools/build-for-safari.sh
-    ./build_tools/build-for-safari.sh
-    ```
-4.  This will create a `Netflix Household Bypass` folder in `build_tools/build/safari/`.
-5.  Open the generated Xcode project: `build_tools/build/safari/Netflix Household Bypass.xcodeproj`
-6.  In Xcode, select your development team (required for signing):
-    - Click on the project in the left sidebar
-    - Select the target "Netflix Household Bypass"
-    - Under "Signing & Capabilities", select your Team
-7.  Build and run the project (Cmd+R) - this will install the extension app.
-8.  Open **Safari > Settings > Extensions** and enable "Netflix Household Bypass".
-9.  The extension should now be active.
-
-**Note:** The warning about "Persistent background pages" on iOS/iPadOS can be ignored for macOS desktop use.
+This extension demonstrates:
+- **Content Script Injection:** How extensions can inject scripts into web pages
+- **DOM Manipulation:** Using MutationObserver to detect and modify page elements
+- **Network Request Interception:** Understanding how web requests can be monitored and modified
+- **Cross-Browser Development:** Building extensions that work across Chrome, Firefox, and Safari
 
 ---
 
-## Caveats & Known Issues
+## Installation
 
-*   **Netflix Video player UI is not visible:** If u dont see the video player UI, just refresh the page. that should fix it for you.
+### Google Chrome / Microsoft Edge / Chromium Browsers
 
-*   **Netflix Updates:** Netflix frequently updates its website and internal APIs. Any changes to the GraphQL endpoint URL, the request structure, the page structure (`/watch/` path), or the modal's CSS selectors/HTML structure could break this extension partially or completely.
-*   **Console Errors:** When on a `/watch/` page, you **will** see network errors (often CORS-related) in the browser's developer console. This is an expected side effect of the extension successfully blocking the network request. While visually noisy, it generally does not impact performance.
-*   **Fragile css:** The modal hiding relies on specific CSS class names and `data-uia` attributes. These might change without notice.
+1. Download or clone this repository
+2. Navigate to `chrome://extensions` (or `edge://extensions`)
+3. Enable **Developer mode**
+4. Click **Load unpacked**
+5. Select the `build_tools/build/chrome/` folder
+
+### Mozilla Firefox
+
+1. Download or clone this repository
+2. Navigate to `about:debugging`
+3. Click **This Firefox** → **Load Temporary Add-on**
+4. Select `build_tools/build/firefox/manifest.json`
+
+**Note:** Firefox temporary add-ons are removed when you close the browser.
+
+### Apple Safari
+
+Safari extensions require Xcode:
+
+1. Install Xcode from the Mac App Store
+2. Run the build script:
+   ```bash
+   chmod +x build_tools/build-for-safari.sh
+   ./build_tools/build-for-safari.sh
+   ```
+3. Open the generated Xcode project:
+   ```bash
+   open build_tools/build/safari/Netflix\ Household\ Bypass/Netflix\ Household\ Bypass.xcodeproj
+   ```
+4. Select your development team in **Signing & Capabilities**
+5. Build and run (Cmd+R)
+6. Enable in **Safari > Settings > Extensions**
 
 ---
 
-## Disclaimer
+## Technical Details
 
-*   This extension is not endorsed by or affiliated with Netflix in any way.
-*   Use this extension at your own risk. The developers assume no liability.
-*   Modifying network requests or the DOM on third-party websites might violate their Terms of Service. Be aware of the potential consequences.
+### How It Works
+
+1. **On `/watch/` pages:** Intercepts specific GraphQL requests using fetch/XHR interception
+2. **On other pages:** Uses MutationObserver to detect and remove modal elements
+3. **CSS Injection:** Forcefully hides modal elements with CSS rules
+
+### Blocked Operations
+
+The extension intercepts GraphQL operations related to household verification:
+- `CLCSInterstitialLolomo`
+- `verifyHousehold`
+- `householdVerification`
+- And similar operations
+
+---
+
+## Known Issues
+
+- **Video UI may not appear:** Refresh the page if the video player UI is missing
+- **Console errors:** Expected behavior when intercepting requests (CORS errors)
+- **Fragile selectors:** Netflix may update class names, breaking modal detection
+- **Netflix updates:** Changes to Netflix's code may break functionality
+
+---
+
+## For Educational Use
+
+This project is intended for:
+- ✅ Learning web extension development
+- ✅ Understanding browser extension APIs
+- ✅ Research on web security and extension capabilities
+- ✅ Personal educational experimentation
+
+This project is **NOT** intended for:
+- ❌ Circumventing paid services
+- ❌ Violating terms of service
+- ❌ Commercial use
+- ❌ Redistribution without permission
 
 ---
 
 ## License
 
-Copyright [Amachi] - All Rights Reserved.
+**Educational Use Only**
 
-Permission is granted to download and use this software for personal, non-commercial purposes only. Redistribution, modification, or commercial use of this software, in whole or in part, is strictly prohibited without the express written permission of the copyright holder.
+This software is provided for educational and research purposes only. By using this software, you agree to:
+
+1. Use it solely for learning and research purposes
+2. Not redistribute or modify without explicit permission
+3. Not use it for commercial purposes
+4. Comply with all applicable laws and terms of service
+5. Accept full responsibility for any consequences
+
+**No warranty is provided. Use at your own risk.**
+
+---
+
+## Acknowledgments
+
+This project is created for educational purposes to demonstrate web extension capabilities. All trademarks and registered trademarks are the property of their respective owners.
