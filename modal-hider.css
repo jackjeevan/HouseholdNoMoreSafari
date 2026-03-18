@@ -1,0 +1,41 @@
+/* Netflix Household Bypass - Force hide verification modals */
+
+/* Hide modal containers */
+.nf-modal.interstitial-full-screen,
+[data-uia="modal-interstitial"],
+[data-uia="account-transfer-interstitial"],
+[data-uia="household-verification-modal"],
+[data-uia*="household"],
+[data-uia*="verification"],
+.interstitial-container,
+[class*="modal"][class*="interstitial"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Hide modal backgrounds */
+.nf-modal-background[data-uia="nf-modal-background"],
+[class*="modal-background"],
+[class*="backdrop"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* Prevent body scroll lock */
+body.nf-modal-open,
+body.modal-open,
+body[style*="overflow: hidden"] {
+    overflow: auto !important;
+    position: static !important;
+}
+
+/* Hide any fullscreen overlays */
+[nf-modal],
+[data-modal],
+.acetate--fill,
+.acetate--container {
+    display: none !important;
+}

@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>NF Bypass Toggle</title>
+    <title>NF Bypass</title>
     <link rel="stylesheet" href="popup.css">
 </head>
 <body>
     <div class="extension-header">
         <h1 class="extension-title">Household Bypass</h1>
-        <p class="extension-subtitle">Network Filter Control</p>
+        <p class="extension-subtitle">Extension is active</p>
     </div>
-    
-    <label class="toggle-container" for="toggleSwitch">
-        <div class="toggle-info">
-            <div class="toggle-label">Enable Bypass</div>
-            <div class="toggle-description">Toggle filtering</div>
-        </div>
-        <div class="modern-switch">
-            <input type="checkbox" id="toggleSwitch">
-            <span class="switch-slider"></span>
-        </div>
-    </label>
-    
-    <div class="status-indicator status-inactive" id="statusIndicator">
-        <div class="status-dot"></div>
-        <span id="statusText">Extension is disabled</span>
+
+    <div class="status-message">
+        <div class="status-dot status-active"></div>
+        <span>Blocking household verification on Netflix</span>
     </div>
-    
-    <script src="popup.js"></script>
+
+    <div class="info-section">
+        <p><strong>How it works:</strong></p>
+        <ul>
+            <li>Blocks household verification requests on /watch/ pages</li>
+            <li>Hides verification modals on browse pages</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>Enjoy Netflix! 🎬</p>
+    </div>
 </body>
 </html>

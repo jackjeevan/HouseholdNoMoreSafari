@@ -7,7 +7,7 @@
 
 A browser extension aiming to bypass the Netflix household verification prompts by employing different strategies depending on the page context.
 
-**Supports:** `Chrome` (and Chromium-based browsers like Edge) | `Firefox`
+**Supports:** `Chrome` (and Chromium-based browsers like Edge) | `Firefox` | `Safari`
 
 ---
 
@@ -25,6 +25,8 @@ A browser extension aiming to bypass the Netflix household verification prompts 
 **Mozilla Firefox:** https://addons.mozilla.org/cs/firefox/addon/netflix-household-no-more/
 
 **Google Chrome / Microsoft Edge / Chromium Browsers:** Extension wont be published there. (approval for upload was denied)
+
+**Safari:** Not published on App Store. Use local installation below.
 
 
 ## Installation (Local Development/Testing)
@@ -50,6 +52,29 @@ As this extension is not published yet on chrome store, you need to load it manu
 6.  Select the **`manifest.json`** file itself inside the extracted folder.
 7.  The extension should now be loaded and active for the current browser session.
     *   **Note:** Firefox temporary add-ons are removed when you close the browser. You will need to reload it each time you restart Firefox.
+
+**Apple Safari:**
+
+Safari extensions require Xcode. The build script will create a Safari app for you:
+
+1.  Download or clone this repository to your local machine.
+2.  Install Xcode from the Mac App Store (required for Safari extension development).
+3.  Run the Safari build script:
+    ```bash
+    chmod +x build_tools/build-for-safari.sh
+    ./build_tools/build-for-safari.sh
+    ```
+4.  This will create a `Netflix Household Bypass` folder in `build_tools/build/safari/`.
+5.  Open the generated Xcode project: `build_tools/build/safari/Netflix Household Bypass.xcodeproj`
+6.  In Xcode, select your development team (required for signing):
+    - Click on the project in the left sidebar
+    - Select the target "Netflix Household Bypass"
+    - Under "Signing & Capabilities", select your Team
+7.  Build and run the project (Cmd+R) - this will install the extension app.
+8.  Open **Safari > Settings > Extensions** and enable "Netflix Household Bypass".
+9.  The extension should now be active.
+
+**Note:** The warning about "Persistent background pages" on iOS/iPadOS can be ignored for macOS desktop use.
 
 ---
 

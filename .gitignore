@@ -1,0 +1,55 @@
+# Build outputs
+build_tools/build/
+*.app
+*.appex
+*.xcresult
+*.xcarchive
+
+# Xcode
+.DS_Store
+*.xcuserstate
+*.xccheckout
+*.moved-aside
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Node modules (if any)
+node_modules/
+
+# OS files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# Safari extension converter output
+safari-extension/
+
+# Manifest (generated during build)
+manifest.json
+
+# Zip files
+*.zip
