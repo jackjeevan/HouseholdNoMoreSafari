@@ -1,6 +1,12 @@
 #!/bin/bash
 echo "Building extension for Firefox..."
-cd ..
+
+# Get the directory where this script is located
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
+
+cd "$PROJECT_DIR"
+
 # Create the build directory and the firefox subdirectory if they don't exist
 mkdir -p build_tools/build/firefox
 cp build_tools/manifest-firefox.json manifest.json
