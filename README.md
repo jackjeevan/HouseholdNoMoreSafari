@@ -53,38 +53,6 @@ Safari extensions require Xcode to build and install:
 
 ---
 
-## Technical Details
-
-### How It Works
-
-1. **On `/watch/` pages:** Intercepts specific GraphQL requests using fetch/XHR interception in the page context
-2. **On other pages:** Uses MutationObserver to detect and remove modal elements
-3. **CSS Injection:** Forcefully hides modal elements with CSS rules using `!important`
-
-### Architecture
-
-```
-HouseholdNoMore/
-├── background-safari.js    # Safari background script (event listeners)
-├── content.js              # Content script (modal hiding + request blocking)
-├── early-inject.js         # Early injection for reliable page context blocking
-├── modal-hider.css         # CSS rules to hide modals
-├── popup.html/css/js       # Extension popup (static info)
-└── build_tools/
-    ├── build-for-safari.sh # Build script
-    └── manifest-safari.json # Safari manifest
-```
-
-### Blocked Operations
-
-The extension intercepts GraphQL operations related to household verification:
-- `CLCSInterstitialLolomo`
-- `verifyHousehold`
-- `householdVerification`
-- And similar operations
-
----
-
 ## Known Issues
 
 - **Video UI may not appear:** Refresh the page if the video player UI is missing
