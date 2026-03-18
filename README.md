@@ -6,21 +6,6 @@ A Safari browser extension for educational purposes that demonstrates how web ex
 
 ---
 
-## ⚠️ IMPORTANT LEGAL DISCLAIMER
-
-**This software is provided "as is" for educational and research purposes only.**
-
-- **Not Affiliated:** This project is not endorsed by, affiliated with, or sponsored by Netflix, Inc.
-- **Use at Your Own Risk:** By using this software, you acknowledge and agree that you are solely responsible for any consequences that may result from its use.
-- **Terms of Service:** Using this extension may violate Netflix's Terms of Service. You are solely responsible for reviewing and complying with applicable terms of service.
-- **No Warranty:** This software is provided without any warranty, express or implied, including but not limited to warranties of merchantability or fitness for a particular purpose.
-- **No Liability:** The authors and contributors shall not be liable for any damages, claims, or legal actions arising from the use of this software.
-- **Educational Use Only:** This project is intended to demonstrate Safari web extension capabilities for educational purposes.
-
-**By using this software, you agree to these terms.**
-
----
-
 ## Features
 
 This Safari extension demonstrates:
@@ -134,22 +119,59 @@ This project is **NOT** intended for:
 
 ---
 
+## Acknowledgments
+
+This project is created for educational purposes to demonstrate Safari web extension capabilities. All trademarks and registered trademarks are the property of their respective owners.
+
+---
+
+## ⚠️ Legal Disclaimer
+
+**This software is provided "as is" for educational and research purposes only.**
+
+By using this software, you acknowledge and agree to the following:
+
+### Not Affiliated
+This project is not endorsed by, affiliated with, or sponsored by Netflix, Inc. or any of its subsidiaries.
+
+### Use at Your Own Risk
+You are solely responsible for any consequences that may result from the use of this software. The authors and contributors assume no responsibility for any damages, losses, or legal issues arising from its use.
+
+### Terms of Service
+Using this extension may violate Netflix's Terms of Service. You are solely responsible for reviewing and complying with all applicable terms of service, end user license agreements, and laws.
+
+### No Warranty
+This software is provided without any warranty, express or implied, including but not limited to:
+- Warranties of merchantability
+- Warranties of fitness for a particular purpose
+- Warranties of non-infringement
+
+### No Liability
+The authors, contributors, and copyright holders shall not be liable for any:
+- Direct, indirect, incidental, or consequential damages
+- Claims, lawsuits, or legal actions
+- Account suspensions or terminations
+- Loss of data or service access
+
+### Educational Use Only
+This project is intended solely for educational and research purposes to demonstrate Safari web extension capabilities. It is not intended to facilitate circumvention of paid services or violate any terms of service.
+
+### Your Responsibility
+By using this software, you agree that:
+1. You will use it solely for learning and research purposes
+2. You will not use it for commercial purposes
+3. You will comply with all applicable laws and terms of service
+4. You accept full responsibility for any consequences
+5. You understand the potential risks involved
+
+**If you do not agree with these terms, do not use this software.**
+
+---
+
 ## License
 
 **Educational Use Only**
 
-This software is provided for educational and research purposes only. By using this software, you agree to:
-
-1. Use it solely for learning and research purposes
-2. Not redistribute or modify without explicit permission
-3. Not use it for commercial purposes
-4. Comply with all applicable laws and terms of service
-5. Accept full responsibility for any consequences
+This software is provided for educational and research purposes only. Redistribution, modification, or commercial use is strictly prohibited without explicit written permission from the author.
 
 **No warranty is provided. Use at your own risk.**
-
----
-
-## Acknowledgments
-
-This project is created for educational purposes to demonstrate Safari web extension capabilities. All trademarks and registered trademarks are the property of their respective owners.
