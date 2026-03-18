@@ -5,6 +5,12 @@ build_tools/build/
 *.xcresult
 *.xcarchive
 
+# Chrome/Firefox files (Safari only repo)
+build_tools/build-for-chrome.sh
+build_tools/build-for-firefox.sh
+build_tools/manifest-chrome.json
+build_tools/manifest-firefox.json
+
 # Xcode
 .DS_Store
 *.xcuserstate
