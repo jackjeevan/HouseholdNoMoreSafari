@@ -1,8 +1,8 @@
 # Netflix Household No More 🚫
 
-A browser extension for educational purposes that demonstrates how web extensions can interact with web pages. This project is intended for **educational and research purposes only**.
+A Safari browser extension for educational purposes that demonstrates how web extensions can interact with web pages. This project is intended for **educational and research purposes only**.
 
-**Supports:** `Chrome` (and Chromium-based browsers like Edge) | `Firefox` | `Safari`
+**Built for:** `Safari` (macOS)
 
 ---
 
@@ -15,7 +15,7 @@ A browser extension for educational purposes that demonstrates how web extension
 - **Terms of Service:** Using this extension may violate Netflix's Terms of Service. You are solely responsible for reviewing and complying with applicable terms of service.
 - **No Warranty:** This software is provided without any warranty, express or implied, including but not limited to warranties of merchantability or fitness for a particular purpose.
 - **No Liability:** The authors and contributors shall not be liable for any damages, claims, or legal actions arising from the use of this software.
-- **Educational Use Only:** This project is intended to demonstrate web extension capabilities for educational purposes.
+- **Educational Use Only:** This project is intended to demonstrate Safari web extension capabilities for educational purposes.
 
 **By using this software, you agree to these terms.**
 
@@ -23,50 +23,48 @@ A browser extension for educational purposes that demonstrates how web extension
 
 ## Features
 
-This extension demonstrates:
+This Safari extension demonstrates:
 - **Content Script Injection:** How extensions can inject scripts into web pages
 - **DOM Manipulation:** Using MutationObserver to detect and modify page elements
 - **Network Request Interception:** Understanding how web requests can be monitored and modified
-- **Cross-Browser Development:** Building extensions that work across Chrome, Firefox, and Safari
+- **Safari Web Extension API:** Building extensions for Safari using Xcode
 
 ---
 
 ## Installation
 
-### Google Chrome / Microsoft Edge / Chromium Browsers
+### Apple Safari (macOS)
 
-1. Download or clone this repository
-2. Navigate to `chrome://extensions` (or `edge://extensions`)
-3. Enable **Developer mode**
-4. Click **Load unpacked**
-5. Select the `build_tools/build/chrome/` folder
+Safari extensions require Xcode to build and install:
 
-### Mozilla Firefox
+1. **Install Xcode** from the Mac App Store
 
-1. Download or clone this repository
-2. Navigate to `about:debugging`
-3. Click **This Firefox** → **Load Temporary Add-on**
-4. Select `build_tools/build/firefox/manifest.json`
+2. **Clone or download** this repository
 
-**Note:** Firefox temporary add-ons are removed when you close the browser.
-
-### Apple Safari
-
-Safari extensions require Xcode:
-
-1. Install Xcode from the Mac App Store
-2. Run the build script:
+3. **Build the extension:**
    ```bash
    chmod +x build_tools/build-for-safari.sh
    ./build_tools/build-for-safari.sh
    ```
-3. Open the generated Xcode project:
+
+4. **Open the Xcode project:**
    ```bash
    open build_tools/build/safari/Netflix\ Household\ Bypass/Netflix\ Household\ Bypass.xcodeproj
    ```
-4. Select your development team in **Signing & Capabilities**
-5. Build and run (Cmd+R)
-6. Enable in **Safari > Settings > Extensions**
+
+5. **Configure signing in Xcode:**
+   - Click on the project in the left sidebar
+   - Select the target "Netflix Household Bypass"
+   - Go to **Signing & Capabilities** tab
+   - Select your **Team** (Apple ID)
+
+6. **Build and run:**
+   - Press **Cmd+R** to build and install
+   - If prompted, allow the app in **System Settings > Privacy & Security**
+
+7. **Enable the extension:**
+   - Open **Safari > Settings > Extensions**
+   - Enable "Netflix Household Bypass"
 
 ---
 
@@ -74,9 +72,23 @@ Safari extensions require Xcode:
 
 ### How It Works
 
-1. **On `/watch/` pages:** Intercepts specific GraphQL requests using fetch/XHR interception
+1. **On `/watch/` pages:** Intercepts specific GraphQL requests using fetch/XHR interception in the page context
 2. **On other pages:** Uses MutationObserver to detect and remove modal elements
-3. **CSS Injection:** Forcefully hides modal elements with CSS rules
+3. **CSS Injection:** Forcefully hides modal elements with CSS rules using `!important`
+
+### Architecture
+
+```
+HouseholdNoMore/
+├── background-safari.js    # Safari background script (event listeners)
+├── content.js              # Content script (modal hiding + request blocking)
+├── early-inject.js         # Early injection for reliable page context blocking
+├── modal-hider.css         # CSS rules to hide modals
+├── popup.html/css/js       # Extension popup (static info)
+└── build_tools/
+    ├── build-for-safari.sh # Build script
+    └── manifest-safari.json # Safari manifest
+```
 
 ### Blocked Operations
 
@@ -94,14 +106,15 @@ The extension intercepts GraphQL operations related to household verification:
 - **Console errors:** Expected behavior when intercepting requests (CORS errors)
 - **Fragile selectors:** Netflix may update class names, breaking modal detection
 - **Netflix updates:** Changes to Netflix's code may break functionality
+- **Persistent background warning:** Safari warning about persistent background pages can be ignored for macOS desktop use
 
 ---
 
 ## For Educational Use
 
-This project is intended for:
-- ✅ Learning web extension development
-- ✅ Understanding browser extension APIs
+This Safari extension project is intended for:
+- ✅ Learning Safari web extension development
+- ✅ Understanding Xcode extension projects
 - ✅ Research on web security and extension capabilities
 - ✅ Personal educational experimentation
 
@@ -110,6 +123,14 @@ This project is **NOT** intended for:
 - ❌ Violating terms of service
 - ❌ Commercial use
 - ❌ Redistribution without permission
+
+---
+
+## Uninstall
+
+1. Open **Safari > Settings > Extensions**
+2. Disable "Netflix Household Bypass"
+3. Delete the extension app from **Applications** folder (if installed)
 
 ---
 
@@ -131,4 +152,4 @@ This software is provided for educational and research purposes only. By using t
 
 ## Acknowledgments
 
-This project is created for educational purposes to demonstrate web extension capabilities. All trademarks and registered trademarks are the property of their respective owners.
+This project is created for educational purposes to demonstrate Safari web extension capabilities. All trademarks and registered trademarks are the property of their respective owners.

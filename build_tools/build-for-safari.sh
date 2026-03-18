@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Building extension for Safari..."
+echo "Building Safari extension..."
 
 # Get the directory where this script is located
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -56,10 +56,12 @@ echo "   open \"$XCODE_PROJECT\""
 echo ""
 echo "2. In Xcode, clean build folder: Product > Clean Build Folder (Shift+Cmd+K)"
 echo ""
-echo "3. Build and run (Cmd+R)"
+echo "3. Select your development team in Signing & Capabilities"
 echo ""
-echo "4. If prompted, allow the app in System Settings"
+echo "4. Build and run (Cmd+R)"
 echo ""
-echo "5. Enable in Safari > Settings > Extensions"
+echo "5. If prompted, allow the app in System Settings"
+echo ""
+echo "6. Enable in Safari > Settings > Extensions"
 echo ""
 echo "Done. Safari extension project created."
